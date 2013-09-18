@@ -1,0 +1,14 @@
+---
+# we need to install kernel headers to be able to compile zfs
+#
+- name: install linux kernel headers
+  shell: apt-get install linux-headers-$(uname -r)
+  sudo: true
+
+- name: add the ppa:zfs-native/stable repository
+  apt_repository: repo='ppa:zfs-native/stable'
+  sudo: true
+
+- name: install the ubuntu-zfs package
+  apt: pkg=ubuntu-zfs state=present update_cache=yes
+  sudo: true

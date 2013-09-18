@@ -1,0 +1,6 @@
+---
+-
+  hosts: all
+
+  tasks:
+  - include: $home/zfs/tasks/install.yml
